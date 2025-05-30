@@ -219,9 +219,9 @@ For technical issues or questions about the methodology, refer to:
 If using this reproduction study in academic work, please cite:
 
 ```
-Wadhwa, M. (2024). Computational Reproduction of Grasso et al. (2023) 
+Wadhwa, M. (2025). Computational Reproduction of Grasso et al. (2023) 
 Signal Peptide Efficiency Prediction Methodology. 
-GitHub repository: [repository URL]
+GitHub repository: https://github.com/Mehak-W/grasso-reproduction-study
 ```
 
 **Original Study:**
