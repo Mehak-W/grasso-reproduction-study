@@ -1,0 +1,25 @@
+# Requirements for Grasso et al. (2023) Reproduction Study
+# Signal Peptide Efficiency Prediction - Computational Biology Project
+
+# Core Data Analysis
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Machine Learning
+scikit-learn>=1.1.0
+
+# Statistical Analysis
+scipy>=1.9.0
+
+# Visualization
+matplotlib>=3.5.0
+
+# Excel File Support
+openpyxl>=3.0.0  # For reading Excel files (.xlsx format)
+
+# Optional (for enhanced analysis)
+seaborn>=0.11.0  # For advanced statistical visualizations
+jupyter>=1.0.0   # For notebook execution
+
+# Standard Library Dependencies (included with Python)
+# os, time, warnings, collections - no installation needed
