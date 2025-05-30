@@ -36,13 +36,14 @@ INSTITUTION: Fordham University
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os                    
+import time
+import warnings
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import cross_val_score, train_test_split, StratifiedShuffleSplit
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from sklearn.preprocessing import StandardScaler
 from scipy import stats
-import warnings
-import time
 warnings.filterwarnings('ignore')
 
 # ============================================================================
@@ -117,6 +118,11 @@ GRASSO_VALIDATED_FEATURES = [
     '-1_I', '-1_K', '-1_L', '-1_M', '-1_N', '-1_P', '-1_Q', '-1_R', '-1_S',
     '-1_T', '-1_V', '-1_W', '-1_Y'
 ]
+
+print(f"Validated Grasso feature set loaded: {len(GRASSO_VALIDATED_FEATURES)} features")
+print(f"Feature categories: N-region, H-region, C-region, Ac-region, SP-region, cleavage sites")
+print(f"Supported formats: CSV (.csv) and Excel (.xlsx) with smart detection")
+print()
 
 # ============================================================================
 # SMART FILE DETECTION AND LOADING
@@ -240,13 +246,7 @@ def load_grasso_dataset(file_path, file_format):
             
         else:
             print(f"❌ Unsupported file format: {file_format}")
-        '-1_T', '-1_V', '-1_W', '-1_Y'
-]
-
-print(f"Validated Grasso feature set loaded: {len(GRASSO_VALIDATED_FEATURES)} features")
-print(f"Feature categories: N-region, H-region, C-region, Ac-region, SP-region, cleavage sites")
-print(f"Supported formats: CSV (.csv) and Excel (.xlsx) with smart detection")
-print()
+            return None
         
         print(f"Dataset dimensions: {df.shape[0]:,} rows × {df.shape[1]:,} columns")
         print(f"Memory usage: {df.memory_usage(deep=True).sum():,} bytes")
@@ -1244,25 +1244,6 @@ def execute_grasso_reproduction(data_filename=None):
     # =========================================================================
     # STEP 1: DATA LOADING AND QUALITY CONTROL
     # =========================================================================
-    
-    print("STEP 1: DATA LOADING AND QUALITY ASSESSMENT")
-    print("-" * 60)
-    print(f"Loading Grasso experimental dataset: {data_filename}")
-    
-    try:
-        # Load dataset with appropriate format detection
-        if data_filename.endswith('.csv'):
-            df = pd.read_csv(data_filename)
-        else:
-            # Handle Excel format if provided (alternative data source)
-            df = pd.read_excel(data_filename, sheet_name='Library_w_Bins_and_WA')
-        
-        print(f"Dataset loaded successfully: {df.shape[0]:,} rows × {df.shape[1]:,} columns")
-        
-    except Exception as e:
-        print(f"Error loading dataset: {e}")
-        print("Please verify file path and format")
-        return None
     
     # Apply Grasso quality control filters exactly as described in methodology
     print()
