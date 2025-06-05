@@ -14,6 +14,8 @@ The original Grasso study developed a Random Forest regression model to predict 
 
 ## Results
 
+![Grasso Reproduction Results](grasso_reproduction_results.png)
+
 ### Performance Metrics
 - **Test MSE**: 1.191 WA² (Target: 1.22 WA²)
 - **Test R²**: 0.750
